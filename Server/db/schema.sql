@@ -1,0 +1,11 @@
+DROP DATABASE IF EXISTS maths;
+
+CREATE DATABASE maths;
+\c maths;
+
+CREATE TABLE highscores (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(30) NOT NULL,
+  score SMALLINT NOT NULL
+);
+
