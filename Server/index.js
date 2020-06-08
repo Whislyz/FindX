@@ -17,7 +17,6 @@ app.get('/api/DummyTest', (req, res) => res.status(200).send('received'));
 app.get('/api/highscores', (req, res) => {
   controller.getHighScores()
   .then( (result) => {
-    console.log(result)
     res.status(200).send(result)
   })
   .catch( (error) => {
@@ -29,12 +28,23 @@ app.get('/api/highscores', (req, res) => {
 app.get('/api/mathProblems', (req, res) => {
   controller.getMathProblems()
   .then( (result) => {
-    console.log(result)
     res.status(200).send(result)
   })
   .catch( (error) => {
     res.status(500)
-    console.log('error from fetching highscores', err)
+    console.log('error from getting all math problems', err)
+  });
+});
+
+app.post('/api/score' , (req, res) => {
+  const {score, username} = req.body.data;
+  controller.insertScore(score, username)
+  .then( (result) => {
+    res.status(200).send(result)
+  })
+  .catch( (error) => {
+    res.status(500)
+    console.log('error from inserting score', error)
   });
 });
 

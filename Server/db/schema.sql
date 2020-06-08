@@ -7,7 +7,7 @@ CREATE TABLE highscores (
   id SERIAL PRIMARY KEY,
   username VARCHAR(30) NOT NULL,
   score INT NOT NULL,
-  date_created Date
+  date_created VARCHAR(30)
 );
 
 CREATE TABLE maths (
@@ -21,7 +21,7 @@ CREATE TABLE maths (
 );
 
 INSERT INTO highscores(username, score) values ('Daddy', 10000);
-INSERT INTO highscores(username, score) values ('Mommy', 99999);
+INSERT INTO highscores(username, score) values ('Mommy', 9999);
 
 COPY maths(problem, a, b, c, d, answer) FROM '/Users/whisly/Documents/HR/mvp/FindX/Server/db/mathProblems.txt' WITH DELIMITER ',';
 

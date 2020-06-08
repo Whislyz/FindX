@@ -15,6 +15,7 @@ class App extends React.Component {
     }
 
     this.pageHandle = this.pageHandle.bind(this);
+    this.submitScore = this.submitScore.bind(this);
   }
 
   async componentDidMount() {
@@ -32,6 +33,20 @@ class App extends React.Component {
     this.setState({display: page})
   };
 
+  async submitScore(username, score) {
+    this.setState({display: "HomePage"})
+    await axios.post('http://192.168.1.111:3000/api/score', {
+      data: {
+        username,
+        score,
+      }
+    })
+    const highScores = await axios.get('http://192.168.1.111:3000/api/highscores');
+    this.setState({
+      highScores: highScores.data,
+    });
+  }
+
   render() {
     const page = this.state.display;
     console.log('this page:' , page);
@@ -46,7 +61,8 @@ class App extends React.Component {
       return (
         <NewGame
           pageHandle={this.pageHandle}
-          mathProblems={this.mathProblems}
+          mathProblems={this.state.mathProblems}
+          submitScore={this.submitScore}
         />
       )
     }
