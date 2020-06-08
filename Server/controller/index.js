@@ -7,4 +7,11 @@ const getHighScores = async () => {
   return data.rows;
 }
 
-module.exports = {getHighScores};
+const getMathProblems = async () => {
+  const sql = "SELECT * FROM maths";
+  const data = await client.query(sql);
+  return data.rows;
+
+}
+
+module.exports = {getHighScores, getMathProblems};

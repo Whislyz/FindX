@@ -11,18 +11,20 @@ class App extends React.Component {
     this.state = {
       display: "HomePage",
       highScores: [],
+      mathProblems: [],
     }
 
     this.pageHandle = this.pageHandle.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('http://192.168.1.111:3000/api/highscores')
-    .then( ({data}) => {
-      console.log("Component Did Mount ", data);
-      this.setState({highScores: data})
-    })
-    .catch( (err) => console.log('err from getting HS', err))
+  async componentDidMount() {
+    const highScores = await axios.get('http://192.168.1.111:3000/api/highscores');
+    const mathProblems = await axios.get('http://192.168.1.111:3000/api/mathProblems');
+    console.log('did mount', highScores.data, mathProblems.data)
+    this.setState({
+      highScores: highScores.data,
+      mathProblems: mathProblems.data,
+    });
   };
 
   pageHandle(page) {
@@ -42,7 +44,10 @@ class App extends React.Component {
       )
     } else {
       return (
-        <NewGame pageHandle={this.pageHandle} />
+        <NewGame
+          pageHandle={this.pageHandle}
+          mathProblems={this.mathProblems}
+        />
       )
     }
   };
@@ -51,9 +56,6 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection: "column",
-    // justifyContent: "center",
-    // alignItems: "center",
   },
   image: {
     flex: 1,
