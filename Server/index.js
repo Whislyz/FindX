@@ -1,5 +1,6 @@
 const express = require('express');
 const { client } = require('./db/index.js');
+const controller = require('./controller/index.js');
 
 const app = express();
 const PORT = 3000;
@@ -12,6 +13,17 @@ app.use('/', (req, res, next) => {
 });
 
 app.get('/api/DummyTest', (req, res) => res.status(200).send('received'));
+app.get('/api/highscores', (req, res) => {
+  controller.getHighScores()
+  .then( (result) => {
+    console.log(result)
+    res.status(200).send(result)
+  })
+  .catch( (error) => {
+    res.status(500)
+    console.log('error from fetching highscores', err)
+  });
+})
 
 app.listen(PORT, (err) => {
   if (err) {
