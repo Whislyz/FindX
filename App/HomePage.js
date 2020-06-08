@@ -95,20 +95,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomePage;
-
-
-{/* <View style={styles.container}>
-<ImageBackground source={require('./Images/classroom.jpg')} style={styles.image}>
-  <View style={styles.highScores}>
-    <TouchableHighlight
-      style={styles.highScoresButton}
-      onPress={() => this.modalHandle(true)}
-    >
-      <Text style={styles.textStyle}>High Scores</Text>
-    </TouchableHighlight>
-  </View>
-  <View style={styles.newGameButton}>
-    <Button onPress={() => this.props.pageHandle("NewGame") } title="New Game"/>
-  </View>
-</ImageBackground>
-</View> */}

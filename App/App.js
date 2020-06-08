@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('http://192.168.1.111:3000/api/highscores')
     .then( ({data}) => {
-      console.log(data);
+      console.log("Component Did Mount ", data);
       this.setState({highScores: data})
     })
     .catch( (err) => console.log('err from getting HS', err))
