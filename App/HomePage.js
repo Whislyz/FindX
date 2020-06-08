@@ -77,12 +77,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
     paddingBottom: 20,
+    width: 150,
   },
   newGameView: {
     flex: 1,
+    width: 150,
   },
   button: {
-    backgroundColor: "#F194FF",
+    backgroundColor: "#76AD3D",
     borderRadius: 20,
     padding: 10,
     elevation: 2
