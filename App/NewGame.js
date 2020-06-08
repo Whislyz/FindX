@@ -43,7 +43,7 @@ export default class NewGame extends React.Component {
     const modalState = this.state.modalVisible;
     return (
       <View style={styles.container}>
-        <ImageBackground source={require('./Images/board2.jpg')} style={styles.image}>
+        <ImageBackground source={require('./Images/classroom3.jpg')} style={styles.image}>
           <Modal
             animationType="fade"
             transparent={false}
@@ -66,8 +66,8 @@ export default class NewGame extends React.Component {
           </Modal>
 
 
-          <View style={styles.score}>
-            <Text>Score : {this.state.score} </Text>
+          <View style={styles.scoreView}>
+            <Text style={styles.scoreText}>Score : {this.state.score} </Text>
           </View>
 
           <MathProblem
@@ -83,7 +83,7 @@ export default class NewGame extends React.Component {
               size={120}
               // initialRemainingTime={5}
               colors={[['#004777', 0.4], ['#F7B801', 0.4], ['#A30000']]}
-              onComplete={ () => this.modalHandle(true)}
+              // onComplete={ () => this.modalHandle(true)}
             >
               {({ remainingTime, animatedColor }) => (
                 <Animated.Text style={{ color: animatedColor }}>
@@ -113,9 +113,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
   },
-  score: {
-    flex: 1,
+  scoreView: {
+    flex: 2,
     alignItems: "center",
-
+    justifyContent: "center",
   },
+  scoreText: {
+    fontSize: 20,
+    color: "white",
+
+  }
 })

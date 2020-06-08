@@ -33,28 +33,28 @@ class MathProblem extends React.Component {
     const {currentProblem} = this.state;
     return (
       <View style={styles.container}>
-        <View style={styles.mathProblem}>
-          <View style={styles.problemDescription}>
-            <Text> {currentProblem.problem} </Text>
+
+          <View style={styles.problemView}>
+            <Text style={styles.problemText}>{currentProblem.problem} </Text>
           </View>
 
-          <View style={styles.answers}>
+          <View style={styles.answersView}>
             <Button onPress={() => this.answerHandle('a')}
-              title={currentProblem.a}  />
+              title={'A. ' + currentProblem.a}  />
           </View>
-          <View style={styles.answers}>
+          <View style={styles.answersView}>
             <Button onPress={() => this.answerHandle('b')}
-              title={currentProblem.b}  />
+              title={'B. ' + currentProblem.b}  />
           </View>
-          <View style={styles.answers}>
+          <View style={styles.answersView}>
             <Button onPress={() => this.answerHandle('c')}
-              title={currentProblem.c}  />
+              title={'C. ' + currentProblem.c}  />
           </View>
-          <View style={styles.answers}>
-            <Button onPress={() => this.answerHandle('d')}
-              title={currentProblem.d}  />
+          <View style={styles.answersView}>
+            <Button color="transparent" onPress={() => this.answerHandle('d')}
+              title={'D. ' + currentProblem.d}  />
           </View>
-        </View>
+
       </View>
     )
   }
@@ -66,15 +66,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'red',
   },
-  mathProblem: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
+  problemView: {
+    marginLeft: 15,
+    marginRight: 15,
   },
-  problemDescription: {
+  problemText: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  answersView: {
+    marginLeft: 15,
+    alignItems: 'flex-start',
+    width: 100,
 
   },
-  answers: {
+  answersText: {
 
   },
 })

@@ -1,6 +1,7 @@
 const { client } = require('../db/index.js');
 const {formatData} = require('./helper.js');
 const moment = require('moment');
+const _ = require('underscore');
 
 const getHighScores = async () => {
   const sql = "SELECT * FROM highscores ORDER BY score desc";
@@ -11,7 +12,8 @@ const getHighScores = async () => {
 const getMathProblems = async () => {
   const sql = "SELECT * FROM maths";
   const data = await client.query(sql);
-  return data.rows;
+  const result = _.shuffle(data.rows);
+  return result;
 }
 
 const insertScore = async (score, userName) => {
