@@ -22,14 +22,17 @@ class HomePage extends React.Component {
       <View style={styles.container}>
         <ImageBackground source={require('./Images/classroom.jpg')} style={styles.image}>
           <Modal
-            animationType="slide"
-            transparent={true}
+            animationType="fade"
+            transparent={false}
             visible={modalState}
             onRequestClose={() => {
               Alert.alert("High Scores window has been closed.");
             }}
           >
-            <HighScores modalHandle={this.modalHandle}/>
+            <HighScores
+              modalHandle={this.modalHandle}
+              highScores={this.props.highScores}
+            />
           </Modal>
 
 

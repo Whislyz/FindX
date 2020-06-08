@@ -5,8 +5,11 @@ export default HighScores = (props) => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text> High Scores Table </Text>
+      <View style={styles.highScoresTable}>
+        <Text> Name </Text>
+        <Text> Scores </Text>
+        <Text> Date </Text>
+
       </View>
       <View style={styles.closeButton}>
         <Button onPress={() => props.modalHandle(false)} title="Close"/>
@@ -27,4 +30,9 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     overflow: "hidden",
   },
+  highScoresTable: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: 'space-around',
+  }
 });
