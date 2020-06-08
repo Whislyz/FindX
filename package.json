@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "seed": "psql -U postgres < ./Server/db/schema.sql"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -15,6 +16,7 @@
     "nodemon": "^2.0.4",
     "pg": "^8.2.1",
     "react": "~16.9.0",
+    "react-devtools": "^3.6.3",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
     "react-native-web": "~0.11.7"

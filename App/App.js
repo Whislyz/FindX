@@ -3,8 +3,9 @@ import axios from 'axios';
 import { Button, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import HomePage from './HomePage.js';
 import NewGame from './NewGame.js';
+import HighScores from './HighScores.js';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -63,3 +64,5 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
 });
+
+export default App;

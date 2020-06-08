@@ -1,0 +1,19 @@
+3 × 9 + 7,32,33,34,35,b
+12 + 36 ÷ 4,50,51,55,52,d
+9 ÷ 3 + 4 × 6,27,42,28,43,a
+2 × 11 − 12 ÷ 2,5,10,12,16,d
+8 × 18 ÷ 4 + 15,50,52,51,54,c
+(67 − 18) ÷ 7 × 3,21,25,20,22,a
+5^2 − 8, 14,15,16,17,d
+(7 × 8 − 4) ÷ (6 − 2),10,11,13,15,c
+2 + 11 × 3,66,35,32,30,b
+15 ÷ 5 − 2,5,3,1,2,c
+54 ÷ 3 − 2 × 4,10,64,62,8,a
+What is three fifth of 100?,3,6,20,60,d
+If David’s age is 27 years old in 2011. What was his age in 2003?,17,37,20,19,d
+What is the remainder of 21 divided by 7?,21,7,1,None of these,d
+What is 7% equal to?,0.007,0.07,0.7,7,b
+I am a number. I have 7 in the ones place. I am less than 80 but greater than 70. What is my number?,71,73,77,75,d
+How many years are there in a decade?,5,10,15,20,b
+What is the square of 15?,15,30,255,225,d
+In a century how many months are there?,12,120,1200,12000,c
