@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableNativeFeedback, Text, View, Button, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, View, Button, StyleSheet } from 'react-native';
 
 class MathProblem extends React.Component {
   constructor(props){
@@ -33,28 +33,34 @@ class MathProblem extends React.Component {
     const {currentProblem} = this.state;
     return (
       <View style={styles.container}>
-
-          <View style={styles.problemView}>
-            <Text style={styles.problemText}>{currentProblem.problem} </Text>
-          </View>
-
+        <View style={styles.problemView}>
+          <Text style={styles.problemText}>{currentProblem.problem} </Text>
+        </View>
+        <View style={styles.multipleChoices}>
           <View style={styles.answersView}>
-            <Button onPress={() => this.answerHandle('a')}
-              title={'A. ' + currentProblem.a}  />
-          </View>
-          <View style={styles.answersView}>
-            <Button onPress={() => this.answerHandle('b')}
-              title={'B. ' + currentProblem.b}  />
-          </View>
-          <View style={styles.answersView}>
-            <Button onPress={() => this.answerHandle('c')}
-              title={'C. ' + currentProblem.c}  />
-          </View>
-          <View style={styles.answersView}>
-            <Button color="transparent" onPress={() => this.answerHandle('d')}
-              title={'D. ' + currentProblem.d}  />
+            <TouchableOpacity style={styles.button} onPress={() => this.answerHandle('a')} >
+              <Text style={styles.textStyle}>{'A. ' + currentProblem.a}</Text>
+            </TouchableOpacity>
           </View>
 
+          <View style={styles.answersView}>
+            <TouchableOpacity style={styles.button} onPress={() => this.answerHandle('b')} >
+              <Text style={styles.textStyle}>{'B. ' + currentProblem.b}</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.answersView}>
+            <TouchableOpacity style={styles.button} onPress={() => this.answerHandle('c')} >
+              <Text style={styles.textStyle}>{'C. ' + currentProblem.c}</Text>
+            </TouchableOpacity>
+          </View>
+
+           <View style={styles.answersView}>
+              <TouchableOpacity style={styles.button} onPress={() => this.answerHandle('d')} >
+                <Text style={styles.textStyle}>{'D. ' + currentProblem.d}</Text>
+              </TouchableOpacity>
+          </View>
+        </View>
       </View>
     )
   }
@@ -62,26 +68,44 @@ class MathProblem extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 5,
-    borderWidth: 1,
-    borderColor: 'red',
+    flex: 4,
+  },
+  button: {
+    backgroundColor: "#276965",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    height: 70,
+    justifyContent: 'center',
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 25,
+
+  },
+  multipleChoices: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: 'center',
   },
   problemView: {
-    marginLeft: 15,
-    marginRight: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   problemText: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
     color: 'white',
   },
   answersView: {
-    marginLeft: 15,
-    alignItems: 'flex-start',
-    width: 100,
-
-  },
-  answersText: {
+    width: 320,
+    borderWidth: 1,
+    borderRadius: 20,
+    borderColor: 'transparent',
+    paddingBottom: 20,
+    paddingTop: 10,
 
   },
 })

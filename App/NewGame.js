@@ -48,23 +48,23 @@ export default class NewGame extends React.Component {
             animationType="fade"
             transparent={false}
             visible={modalState}
-            onRequestClose={() => {
-              Alert.alert("Score has been submitted.");
-            }}
+            onRequestClose={() => {Alert.alert("Score has been submitted.")}}
           >
-            <View>
-              <Text> Your Score: {this.state.score} </Text>
+            <View style={styles.resultView}>
+              <View style={styles.modalScoreView}>
+                <Text style={styles.modalText}> Great Job! Your score is {this.state.score} </Text>
+              </View>
               <Input
-                label="Your Name"
-                placeholder="please enter your name for this score"
-                leftIcon={<Icon name="user" size={20} color="grey" />}
+                inputStyle={styles.modalInput}
+                label="Please Enter Your Name"
+                // placeholder="username"
+                leftIcon={<Icon name="user" size={20} color="white" />}
                 value={this.state.username}
                 onChangeText={ text => this.inputHandle(text)}
                 onSubmitEditing={this.submitScore}
               />
             </View>
           </Modal>
-
 
           <View style={styles.scoreView}>
             <Text style={styles.scoreText}>Score : {this.state.score} </Text>
@@ -76,17 +76,15 @@ export default class NewGame extends React.Component {
           />
 
           <View style={styles.timer}>
-            <Text>Times</Text>
             <CountdownCircleTimer
               isPlaying
-              duration={7}
+              duration={30}
               size={120}
-              // initialRemainingTime={5}
               colors={[['#004777', 0.4], ['#F7B801', 0.4], ['#A30000']]}
-              // onComplete={ () => this.modalHandle(true)}
+              onComplete={ () => this.modalHandle(true)}
             >
               {({ remainingTime, animatedColor }) => (
-                <Animated.Text style={{ color: animatedColor }}>
+                <Animated.Text style={{ color: animatedColor, fontSize: 40}}>
                   {remainingTime}
                 </Animated.Text>
               )}
@@ -111,16 +109,36 @@ const styles = StyleSheet.create({
   timer: {
     flex: 2,
     alignItems: "center",
+    justifyContent: 'flex-end',
+    paddingBottom: 40,
 
   },
   scoreView: {
-    flex: 2,
+    flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end",
+    paddingBottom: 11,
   },
   scoreText: {
     fontSize: 20,
     color: "white",
+  },
 
-  }
+
+  resultView: {
+    flex: 1,
+    backgroundColor: '#276965',
+    justifyContent: 'center',
+  },
+  modalScoreView: {
+    paddingBottom: 30,
+  },
+  modalText: {
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+  modalInput: {
+    color: 'white',
+  },
 })
